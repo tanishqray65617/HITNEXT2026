@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jigsaw Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Top UI Bar -->
+        <header class="top-bar glass">
+            <div class="stats">
+                <span id="progress-text">0 / 0 pieces</span>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <span id="percentage-text">0%</span>
+            </div>
+            <div id="timer" class="timer">00:00</div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main id="workspace">
+            <svg id="puzzle-svg" xmlns="http://www.w3.org/2000/svg">
+                <defs id="puzzle-defs"></defs>
+                <g id="target-area"></g>
+                <g id="preview-layer" style="opacity: 0; pointer-events: none;"></g>
+                <g id="pieces-layer"></g>
+            </svg>
+        </main>
+
+        <!-- Bottom UI Bar -->
+        <footer class="bottom-bar glass">
+            <button id="btn-preview" class="btn">Preview</button>
+            <button id="btn-shuffle" class="btn">Shuffle</button>
+            <button id="btn-reset" class="btn btn-primary">Reset</button>
+        </footer>
+
+        <!-- Completion Overlay -->
+        <div id="completion-overlay" class="overlay hidden">
+            <div class="completion-modal glass">
+                <h1>Puzzle Complete!</h1>
+                <p id="final-stats">You finished in <span id="final-time">00:00</span>.</p>
+                <button id="btn-play-again" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Loading Error Overlay -->
+        <div id="error-overlay" class="overlay hidden">
+            <div class="error-modal glass">
+                <h1>Error Loading Image</h1>
+                <p>Could not load `jigsawimg.png`. Please ensure the image is placed in the project folder.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
